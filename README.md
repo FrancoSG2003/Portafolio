@@ -50,13 +50,13 @@ En la sección de proyectos encontrarás diferentes trabajos realizados durante 
 ## Portafolio
 Si quieres conocer el portafolio te dejo el enlace.
 
-**Deploy:** [https://francosg2003.github.io/Portafolio/]
+**Deploy:** https://francosg2003.github.io/Portafolio/
 
 ##  Contacto
 
 Si quieres conocer más sobre mi trabajo, puedes visitar mi portafolio o encontrarme en mis redes profesionales.
 
-**LinkedIn:** [https://www.linkedin.com/in/simon-franco-guisado/]
+**LinkedIn:** https://www.linkedin.com/in/simon-franco-guisado/
 
 ---
 
