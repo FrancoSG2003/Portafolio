@@ -1,0 +1,464 @@
+:root {
+    /*  COLORES PRINCIPALES */
+
+    --color-bg: #030b16;
+    --color-bg-secondary: #061426;
+    --color-bg-card: #071a2e;
+
+    /* Azul principal */
+    --color-primary: #00aaff;
+    --color-primary-light: #39c8ff;
+    --color-primary-dark: #0066cc;
+
+    /* Azul neón */
+    --color-neon: #00d9ff;
+    --color-neon-soft: #00a8e8;
+
+    /* TEXTOS */
+
+    --color-text: #d9f4ff;
+    --color-text-light: #ffffff;
+    --color-text-muted: #78a8c4;
+    --color-text-dark: #46758f;
+
+    /* BORDES */
+
+    --color-border: #075b91;
+    --color-border-light: #008fd4;
+    --color-border-neon: #00c8ff;
+
+    /* EFECTOS */
+
+    --color-glow: rgba(0, 170, 255, 0.45);
+    --color-glow-strong: rgba(0, 217, 255, 0.7);
+
+    /*  ESTADOS */
+
+    --color-success: #00ff9d;
+    --color-warning: #ffd166;
+    --color-danger: #ff4d6d;
+
+    /* ELEMENTOS DE INTERFAZ */
+
+    --color-progress-bg: #092238;
+    --color-overlay: rgba(3, 11, 22, 0.85);
+
+    /* BORDES / SOMBRAS */
+
+    --border-radius: 4px;
+    --border-radius-small: 2px;
+
+    --shadow-neon:
+        0 0 5px var(--color-primary),
+        0 0 15px var(--color-glow);
+
+    --shadow-neon-strong:
+        0 0 5px var(--color-neon),
+        0 0 20px var(--color-glow-strong),
+        0 0 40px var(--color-glow);
+
+
+        /* FUENTES */
+        
+    .pixelify-sans {
+
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    }
+}
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+
+    scroll-behavior: smooth;
+}
+
+body {
+
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: monospace;
+}
+
+
+#pantalla-carga {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../img/fondo carga.png');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+
+}
+
+
+.padre {
+
+    width: min(700px, 90%);
+    padding: 40px;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg-secondary);
+    box-shadow: var(--shadow-neon);
+
+}
+
+
+.titulo {
+
+    text-align: center;
+    color: var(--color-neon);
+    font-size: 2rem;
+    font-family: "Pixelify Sans", serif;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin-bottom: 35px;
+    text-shadow:
+        0 0 5px var(--color-neon),
+        0 0 15px var(--color-glow);
+}
+
+@keyframes parpadeo {
+
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+
+.terminal {
+
+    margin-bottom: 35px;
+    color: var(--color-primary-light);
+    font-size: 1rem;
+    line-height: 1.8;
+    animation: parpadeo 1.5s infinite;
+}
+
+.terminal p {
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+.terminal p::first-letter {
+    color: var(--color-neon);
+}
+
+
+.cargando {
+
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.barra-progreso {
+
+    width: 100%;
+    height: 22px;
+    border: 1px solid var(--color-primary);
+    background-color: var(--color-progress-bg);
+    padding: 3px;
+    overflow: hidden;
+}
+
+
+#progress-fill {
+
+    width: 0%;
+    height: 100%;
+    background-color: var(--color-neon);
+    box-shadow:
+        0 0 5px var(--color-neon),
+        0 0 15px var(--color-neon);
+    transition: width 0.1s linear;
+}
+
+
+#porcentaje {
+
+    display: block;
+    margin-top: 10px;
+    color: var(--color-neon);
+    font-size: 1rem;
+
+}
+
+
+.estado {
+
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    font-family: "Pixelify Sans", serif;
+}
+
+.estado span {
+
+    color: var(--color-success);
+    text-shadow:
+        0 0 5px var(--color-success);
+}
+
+
+#portfolio {
+
+    min-height: 100vh;
+    display: none;
+}
+
+#navbar {
+    
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: rgba(3, 11, 22, 0.92);
+    border-bottom: 1px solid var(--color-border);
+    z-index: 1000;
+}
+
+.contenedor-navbar {
+
+    width: min(1200px, 92%);
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--color-bg);
+    background-color: var(--color-neon);
+    border: solid 2px var(--color-neon);
+    border-radius: 25%;
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 1.6rem;
+    font-weight: bold;
+    box-shadow:
+        0 0 5px var(--color-neon),
+        0 0 15px var(--color-glow);
+    transition: all 0.2s ease;
+}
+
+.logo:hover {
+
+    color: var(--color-neon);
+    background-color: transparent;
+    box-shadow: var(--shadow-neon-strong);
+    transform: translateY(-2px);
+}
+
+.menu {
+
+    display:flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.nav-link {
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 0;
+    color: var(--color-text);
+    text-decoration: none;
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: color 0.2s ease;
+
+}
+
+.flecha-indicador {
+
+    color: var(--color-neon);
+    font-size: 0.7rem;
+    opacity: 0;
+    transform: translateX(-5px);
+    transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+
+    color: var(--color-neon);
+    text-shadow: 0 0 8px var(--color-glow);
+
+}
+
+
+.nav-link:hover .flecha-indicador {
+
+    opacity: 1;
+    transform: translateX(0);
+
+}
+
+
+.nav-link.active {
+
+    color: var(--color-neon);
+    text-shadow:
+        0 0 5px var(--color-glow);
+
+}
+
+
+.nav-link.active .flecha-indicador {
+
+    opacity: 1;
+    transform: translateX(0);
+
+}
+
+
+/* BANNER */
+
+.banner {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-image: url('../img/Fondo banner.png');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+
+.contenedor-banner {
+
+    width: min(1200px, 92%);
+    min-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+}
+
+.contenido-banner {
+
+    position: relative;
+    z-index: 2;
+    width: 55%;
+    padding-top: 70px;
+
+}
+
+.jugador {
+
+    margin-bottom: 15px;
+    color: var(--color-primary-light);
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 1rem;
+    letter-spacing: 2px;
+
+}
+
+.titulo-principal {
+
+    margin-bottom: 5px;
+    color: var(--color-text-light);
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 1;
+    letter-spacing: 5px;
+    text-shadow:
+        0 0 5px var(--color-neon),
+        0 0 15px var(--color-glow);
+
+}
+
+.contenido-banner h2 {
+
+    margin-bottom: 25px;
+    color: var(--color-neon);
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    letter-spacing: 3px;
+
+}
+
+.descripcion {
+
+    max-width: 500px;
+    margin-bottom: 35px;
+    color: var(--color-text-muted);
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 1rem;
+    line-height: 1.8;
+
+}
+
+.botones-acciones {
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+}
+
+.btn-accion {
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 22px;
+    text-decoration: none;
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: var(--border-radius);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease,
+        color 0.2s ease;
+    
+    color: var(--color-neon);
+    background-color: transparent;
+    border: 1px solid var(--color-primary);
+
+}
+
+.btn-accion a {
+
+    text-decoration: none;
+    color: var(--color-neon);
+
+}
+
+.btn-accion:hover {
+
+    transform: translateY(-3px);
+    background-color: var(--color-neon);
+    box-shadow: var(--shadow-neon-strong);
+    color: black;
+
+}
