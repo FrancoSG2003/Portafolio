@@ -1,7 +1,9 @@
-const btnproceso = document.querySelector(".demo-proceso");
+const btnproceso = document.querySelectorAll(".demo-proceso");
 
 
-btnproceso.addEventListener("click", proceso);
+btnproceso.forEach(function(btn) {
+    btn.addEventListener("click", proceso);
+});
 
 function proceso(event) {
 
